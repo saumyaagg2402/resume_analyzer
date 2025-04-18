@@ -4,7 +4,13 @@ import json
 
 class JobMatcher:
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        api_key = os.getenv('OPENAI_API_KEY')
+        if not api_key:
+            raise ValueError(
+                "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable "
+                "in your Streamlit Cloud settings under Secrets management."
+            )
+        self.client = OpenAI(api_key=api_key)
     
     def calculate_match_score(self, resume_text: str, job_description: str) -> dict:
         analysis_prompt = f"""

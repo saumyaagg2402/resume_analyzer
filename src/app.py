@@ -99,33 +99,40 @@ def display_results(results):
         st.markdown(results['feedback'])
 
 def main():
-    init_app()
-    
-    # File uploader for resume
-    resume_file = st.file_uploader("Upload Resume (PDF)", type=['pdf'])
-    
-    # Text area for job description
-    job_description = st.text_area(
-        "Enter Job Description",
-        height=200,
-        placeholder="Paste the job description here..."
-    )
-    
-    # Analyze button
-    if st.button("Analyze Resume"):
-        if resume_file is None:
-            st.error("Please upload a resume file")
-            return
-        if not job_description:
-            st.error("Please enter a job description")
-            return
+    try:
+        init_app()
         
-        with st.spinner("Analyzing resume..."):
-            try:
-                results = analyze_resume(resume_file, job_description)
-                display_results(results)
-            except Exception as e:
-                st.error(f"Error analyzing resume: {str(e)}")
+        # File uploader for resume
+        resume_file = st.file_uploader("Upload Resume (PDF)", type=['pdf'])
+        
+        # Text area for job description
+        job_description = st.text_area(
+            "Enter Job Description",
+            height=200,
+            placeholder="Paste the job description here..."
+        )
+        
+        # Analyze button
+        if st.button("Analyze Resume"):
+            if resume_file is None:
+                st.error("Please upload a resume file")
+                return
+            if not job_description:
+                st.error("Please enter a job description")
+                return
+            
+            with st.spinner("Analyzing resume..."):
+                try:
+                    results = analyze_resume(resume_file, job_description)
+                    display_results(results)
+                except ValueError as ve:
+                    st.error(str(ve))
+                except Exception as e:
+                    st.error(f"Error analyzing resume: {str(e)}")
+    except ValueError as ve:
+        st.error(str(ve))
+    except Exception as e:
+        st.error(f"Application error: {str(e)}")
 
 if __name__ == "__main__":
     main()
