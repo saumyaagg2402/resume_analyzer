@@ -3,8 +3,12 @@ import os
 from resume_parser import ResumeParser
 from job_matcher import JobMatcher
 from dotenv import load_dotenv
+from setup import download_spacy_model
 
 def init_app():
+    # Download spaCy model if needed
+    download_spacy_model()
+    
     # Load environment variables
     load_dotenv()
     
