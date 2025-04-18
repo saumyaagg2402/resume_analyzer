@@ -1,7 +1,7 @@
 import streamlit as st
 import os
-from resume_parser import ResumeParser
-from job_matcher import JobMatcher
+from resume_analyzer.src.resume_parser import ResumeParser
+from resume_analyzer.src.job_matcher import JobMatcher
 from dotenv import load_dotenv
 from setup import download_spacy_model
 
