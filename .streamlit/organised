@@ -1,0 +1,11 @@
+resume_analyzer/
+├── src/
+│   ├── app.py           # Keep (main Streamlit app)
+│   ├── job_matcher.py   # Keep (AI matching logic)
+│   ├── resume_parser.py # Keep (PDF parsing)
+│   ├── main.py         # Can delete (terminal version)
+│   └── interactive_analyzer.py # Can delete (terminal version)
+├── .streamlit/
+│   └── config.toml
+├── requirements.txt
+└── .env
