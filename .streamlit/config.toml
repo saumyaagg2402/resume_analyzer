@@ -1,5 +1,12 @@
+[server]
+enableCORS = true
+enableXsrfProtection = true
+
 [theme]
 primaryColor = "#00cc00"
 backgroundColor = "#ffffff"
 secondaryBackgroundColor = "#f0f0f0"
 textColor = "#262730"
+
+[logger]
+level = "info"

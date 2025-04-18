@@ -4,4 +4,4 @@ PyPDF2==3.0.1
 spacy==3.7.2
 openai==1.11.1
 scikit-learn==1.4.0
-https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1.tar.gz
+en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1.tar.gz
